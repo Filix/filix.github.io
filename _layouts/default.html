@@ -1,1 +1,21 @@
-{{ content }}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/pygment_trac.css">
+    <script src="/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="/javascripts/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1 id="site_name"><a href="/">Hello, Orangutan!</a></h1>
+    {{ content }}
+    <p id="tags">["<a href="/php.html">PHP</a>", "<a href="linux.html">LINUX</a>", "<a href="/database.html">DATABASE</a>", "<a href="/nosql.html">NOSQL</a>"]</p>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+  </body>
+</html>

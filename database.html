@@ -1,11 +1,10 @@
 ---
 layout: default
-title: 子非吾 -- Filix
+title: 子非吾 -- DATABASE
 ---
-
+<h3>DATABASE</h3>
 <ul id="articles">
-    {% for post in site.posts %}
+    {% for post in site.tags.database %}
         <li><a href="{{ post.url }}">{{ post.title }}</a> {{ post.date | date_to_string }}</li>
     {% endfor %}
 </ul>
-

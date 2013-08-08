@@ -26,26 +26,39 @@ time, mark, audio, video {
 /* Base text styles */
 
 body {
+  width:700px;
+  margin:auto;
+  position:relative;
   padding:10px 50px 0 0;
   font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: #232323;
 	background-color: #FBFAF7;
-	margin: 0;
 	line-height: 1.8em;
 	-webkit-font-smoothing: antialiased;
 
 }
-
+h1#site_name{
+    color: #000;
+    border-bottom: none;
+    font-family: verdana;
+}
 h1, h2, h3, h4, h5, h6 {
   color:#232323;
   margin:36px 0 10px;
 }
 
+p#tags{position:absolute;top:60px;right:0}
+p#tags a{color:#333;font-weight:bold;padding:5px 2px;}
+p#tags a:hover{color:#c51;text-decoration:underline}
+
 p, ul, ol, table, dl {
   margin:0 0 22px;
 }
-
+ul#articles{list-style:none;padding:0;}
+ul#articles li {color:#888;font-size:80%;border-bottom:1px solid #eee;list-style:none; padding-left: 5px;}
+ul#articles li a{color:#047;font-size:15px;width:550px;padding:18px;display:inline-block; }
+ul#articles li a:hover{color:#c51;}
 h1, h2, h3 {
 	font-family: Arvo, Monaco, serif;
   line-height:1.3;
