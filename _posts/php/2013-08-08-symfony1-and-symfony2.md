@@ -2,6 +2,7 @@
 layout: post
 title: Symfony1.4和2.1比较
 tag: [php]
+keywords: 子非吾,symfony,技术博客,it
 ---
 #Symfony1.4和2.1比较
 
