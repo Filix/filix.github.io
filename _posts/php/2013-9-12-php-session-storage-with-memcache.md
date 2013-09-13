@@ -195,5 +195,8 @@ php为我们提供了在程序中控制session存取的方法：session_set_save
 另外，对于使用memcache存取session时，建议单台实例只做这件事，不要存取其余的数据在该台实例上，以免内存不足时，memcache自动丢掉用户的session而造成用户莫名掉线的问题。
 
 
+写了这么多，你是不是也该试试了？试试Mysql或者Redis如何？
+
+
 
 
