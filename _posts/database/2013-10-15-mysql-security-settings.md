@@ -44,6 +44,7 @@ Mysql命令设置密码：
 
 	create database db1;
 	grant select,insert,update,delete,create,drop privileges on database.* to
+	
 	user@localhost identified by 'passwd';
 
 ###7. 限制普通用户浏览其它数据库
