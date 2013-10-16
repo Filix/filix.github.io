@@ -43,7 +43,8 @@ Mysql命令设置密码：
 ###6.最小权限用户：
 
 	create database db1;
-	grant select,insert,update,delete,create,drop privileges on database.* to 	user@localhost identified by 'passwd';
+	grant select,insert,update,delete,create,drop privileges on database.* to
+	user@localhost identified by 'passwd';
 
 ###7. 限制普通用户浏览其它数据库
 编辑my.cnf在[mysqld]添加：
