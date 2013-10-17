@@ -17,7 +17,8 @@ keywords: 子非吾,MySql,on duplicate key update,技术博客,it
 	
 这样的写法可能有如下几点缺陷：
 
-* 麻烦。一个很简单的逻辑缺要写十来行代码
+* 麻烦。一个很简单的逻辑缺要写十来行代码。    
+* 少量的性能消耗。执行了两次sql，按照一条sql一去一回两次网络传输的话，那么这就是4次。    
 * 在高并发下会出问题。比如当我们获取到了需要的数据，在更新之前，有另外一个请求恰好删除了该条记录，我们的更新操作就没起到作用；再或者，如果我们更新操作的写法有问题，比如更新列a，我们使用`a = $row[a] + 1`而不是`a = a +1`这种原子性的操作，有可能别的请求已经修改过了该字段，从而造成数据出错。
 
 幸好，MySql考虑到了这点，提供了`insert … on duplicate key update`的语法，该语法在insert的时候，如果insert的数据会引起唯一索引（包括主键索引）的冲突，即这个唯一值重复了，则不会执行insert操作，而执行后面的update操作。
@@ -28,6 +29,8 @@ keywords: 子非吾,MySql,on duplicate key update,技术博客,it
 	#因为a=1的记录已存在了，所以不会执行insert，而会在该条记录上执行update语言`b=b+1`,记录会变成a=1,b=2
 	insert into test (a,b) values (2,2) on duplicate key update b = b + 1;
 	#a=2的记录不存在，所以执行insert
+	
+这样我们就无需在应用程序里面再去判断记录是否存在了，也无需关系高并发下数据出错的情况了。
 	
 如果行作为新记录被插入，则受影响的行为1；如果原有记录被更新，则受影响行为2；如果原有记录已存在，但是更新的值和原有值相同，则受影响行为0。
 
@@ -70,7 +73,7 @@ keywords: 子非吾,MySql,on duplicate key update,技术博客,it
 	
 在update中可以使用`values()`方法引用在insert中的值，如：
 
-	insert into test values(1,3,5) on duplicate key update c = values©+ 1;
+	insert into test values(1,3,5) on duplicate key update c = values( c )+ 1;
 	 
 该语句会使a=1的记录中c字段的值更新为6，因为values(c)的值是引用的insert部分的值，在这个例子中就是`insert into test values(1,3,5) `中的5，所以最终更新的值为6。
 
