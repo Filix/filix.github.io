@@ -22,7 +22,8 @@ MySql的默认存储引擎，支持较高的插入和查询速度，但是不支
 
 MyISAM支持三种索引：B-tree，R-tree和Full-text索引。MySql中只有MyISAM引擎支持全文索引。
 
-MyISAM引擎其余的特性请移步》<MySql.com>
+MyISAM引擎其余的特性请移步》  [MySql.com](MySql.com)
+
 
 ###InnoDB存储引擎
 敬请期待
